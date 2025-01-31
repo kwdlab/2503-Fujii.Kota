@@ -1,20 +1,38 @@
 # Overview
-卒業研究で作成したプログラムの概要を1～3行で書く。
+This project uses the quasi-isomorphic cryptographic library Microsoft SEAL to accelerate the computation. The program will compare the change in computation time and maximum memory usage using the matrix product algorithm and the Strassen algorithm, respectively.
 
 # Description
-卒業研究で作成したプログラムの詳細を書く。
+- The bit_matrix.cpp is in the seal_project file and can be calculated using the matrix product algorithm.
+- The bit_strassen.cpp is in the seal_project file and can be calculated using Strassen's algorithm.
+- The two cpp programs can change the matrix size, quasi-isomorphic cryptographic parameters, and polynomial degree values in addition to the numerical input.
+- When the program is executed, the computation time and maximum memory usage are displayed.
 
 # Requirements
-使用したソフトウェア名称、ソフトウェアバージョン等のプログラムの動作環境を書く。
+- macOS version 14.4.1
+- Microsoft SEAL 4.1
+- Apple Clang 15.0.0(clang-1500.3.9.4）
 
 # Install/Usage
-プログラムのインストール法や使い方を書く。
+- Install of Microsoft SEAL
+'git clone https://github.com/microsoft/SEAL.git
+cd SEAL'
+
+- Install of Homebrew
+'brew install gnu-time'
+
+- Usage
+Step1.Compile
+'g++ -std=c++17 bit_strassen.cpp -o seal_example -I/usr/local/include/SEAL-4.1 -L/usr/local/lib -lseal-4.1 -mmacosx-version-min=14.4'
+
+Step2.Run
+'/opt/homebrew/bin/gtime --verbose ./seal_example'
 
 # Author
-自分の名前を書く。
+[Kouta Fujii](https://github.com/kwdlab/2503-Fujii.Kota)
 
 # References
-プログラム作成に参考にした書籍、論文を書く。
+- [Microsoft SEAL](https://www.microsoft.com/en-us/research/project/microsoft-seal/)
+- [Strassen](https://ja.wikipedia.org/wiki/シュトラッセンのアルゴリズム)
 
 # License
-掲載しているプログラムのライセンスを書く。
+[MIT](https://opensource.org/license/mit) 
